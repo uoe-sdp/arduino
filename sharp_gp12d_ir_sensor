@@ -1,0 +1,17 @@
+const int IR_SENSOR = 0;    // Sensor is connected to the analog A0
+
+void setup() { 
+   Serial.begin(9600);    // Start serial port communication 
+} 
+ 
+void loop() { 
+   // Read the IR sensor 
+   int intSensorInput = analogRead(IR_SENSOR);
+   // Calculated value
+   float fltSensorCalculation = (6787.0 / (intSensorInput - 3.0)) - 4.0; 
+
+   //Calculate distance in cm and print to screen
+   Serial.print(fltSensorCalculation);
+   Serial.println(" cm");
+   delay(200);
+}
